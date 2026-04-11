@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function Clock() {
   const [time, setTime] = useState<string | null>(null)
-  const timezone = "(GMT+5:30)"
+  const timezone = "Asia/Kolkata"
   const location = "Vadodara,India"
   const gmtOffset = "GMT+5:30"
 
