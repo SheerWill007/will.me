@@ -2,6 +2,7 @@ import "./globals.css"
 import { ThemeProvider } from "next-themes"
 import { JetBrains_Mono, Amiri } from "next/font/google"
 import ThemeToggle from "@/components/ThemeToggle"
+import MusicToggle from "@/components/MusicToggle"
 import type { Metadata } from "next"
 
 const jetbrains = JetBrains_Mono({
@@ -46,20 +47,22 @@ export default function RootLayout({
           enableSystem={false}
         >
 
-          {/* top fade overlay */}
+          {/* Top fade overlay */}
           <div
             className="
-            fixed top-0 left-0 w-full h-32 pointer-events-none z-40
-            bg-gradient-to-b
-            from-white via-white/80 to-transparent
-            dark:from-black dark:via-black/80 dark:to-transparent
-          "
+              fixed top-0 left-0 w-full h-32 pointer-events-none z-40
+              bg-gradient-to-b
+              from-white via-white/80 to-transparent
+              dark:from-black dark:via-black/80 dark:to-transparent
+            "
           />
 
-          {children}
+          <div className="fixed bottom-6 right-6 z-50 flex items-center gap-1">
+            <MusicToggle />
+            <ThemeToggle />
+          </div>
 
-          {/* theme toggle */}
-          <ThemeToggle />
+          {children}
 
         </ThemeProvider>
 

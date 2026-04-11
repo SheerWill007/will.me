@@ -38,7 +38,6 @@ export default function ThemeToggle() {
     setNextTheme(newTheme)
     setAnimating(true)
 
-    // Slight delay for smooth reveal sync
     setTimeout(() => {
       setTheme(newTheme)
     }, 150)
@@ -50,11 +49,9 @@ export default function ThemeToggle() {
 
   return (
     <>
-      {/* 🔥 Glass Circular Button */}
       <button
         onClick={toggleTheme}
         className="
-          fixed bottom-6 right-6 z-50
           h-11 w-11
           rounded-full
           border border-border
@@ -65,6 +62,8 @@ export default function ThemeToggle() {
           hover:scale-105
           active:scale-95
           shadow-lg shadow-black/10 dark:shadow-black/40
+          ring-1 ring-blue-400/30
+          hover:ring-blue-400/60
         "
       >
         {isDark ? (
@@ -74,7 +73,6 @@ export default function ThemeToggle() {
         )}
       </button>
 
-      {/* 🔥 Smooth Circular Reveal */}
       <AnimatePresence>
         {animating && (
           <motion.div
@@ -87,7 +85,7 @@ export default function ThemeToggle() {
             exit={{ opacity: 0 }}
             transition={{
               duration: 0.65,
-              ease: [0.22, 1, 0.36, 1], // smoother cubic-bezier
+              ease: [0.22, 1, 0.36, 1],
             }}
             className={`fixed inset-0 z-40 pointer-events-none ${nextTheme === "dark"
                 ? "bg-[hsl(222.2_84%_4.9%)]"
