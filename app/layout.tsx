@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes"
 import { JetBrains_Mono, Amiri } from "next/font/google"
 import ThemeToggle from "@/components/ThemeToggle"
 import MusicToggle from "@/components/MusicToggle"
+import Clock from "@/components/clock"
 import type { Metadata } from "next"
 
 const jetbrains = JetBrains_Mono({
@@ -57,6 +58,12 @@ export default function RootLayout({
             "
           />
 
+          {/* Clock — top left */}
+          <div className="fixed top-6 left-6 z-50">
+            <Clock />
+          </div>
+
+          {/* Buttons — bottom right */}
           <div className="fixed bottom-6 right-6 z-50 flex items-center gap-1">
             <MusicToggle />
             <ThemeToggle />
